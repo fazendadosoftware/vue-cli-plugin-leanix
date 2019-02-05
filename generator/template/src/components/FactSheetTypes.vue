@@ -10,8 +10,6 @@ export default {
   components: { HotTable },
   data () {
     return {
-      factSheets: [],
-      error: '',
       hotSettings: {
         data: [],
         columns: [
@@ -42,7 +40,7 @@ export default {
                 accumulator[type]++
                 return accumulator
               }, {})
-            factSheets = Object.entries(factSheets).map(([type, { count, description }]) => { return { type, count } })
+            factSheets = Object.entries(factSheets).map(([type, count]) => { return { type, count } })
             resolve(factSheets)
           })
           .catch(err => {
@@ -59,8 +57,8 @@ export default {
   },
   created () {
     this.fetchFactSheetCount()
-      .then(factSheets => { this.factSheets = factSheets; this.hotSettings.data = factSheets })
-      .catch(err => { this.error = err.message })
+      .then(factSheets => { this.hotSettings.data = factSheets })
+      .catch(err => { console.error(err) })
   }
 }
 </script>
