@@ -1,14 +1,14 @@
 const LeanixReporting = require('./commands/LeanixReporting')
-const { info, done, openBrowser } = require('@vue/cli-shared-utils')
+const { error, done, openBrowser, exit } = require('@vue/cli-shared-utils')
 
 module.exports = (api, options) => {
-  // https://github.com/vuejs/vue-cli/issues/1647
-  // https://stackoverflow.com/questions/49626085/vue-cli-version-3-beta-webpack-configuration
 
   api.configureWebpack(config => {
-    config.devServer = { ...config.devServer, disableHostCheck: true, headers: { 'Access-Control-Allow-Origin': '*' } }
+    config.devServer = { ...config.devServer, headers: { 'Access-Control-Allow-Origin': '*' } }
   })
+
   api.chainWebpack(webpackConfig => {
+    webpackConfig.devServer.https(true).disableHostCheck(true)
     webpackConfig.plugin('provide').use(require('webpack').ProvidePlugin, [
       {
         $: 'jquery',
@@ -18,6 +18,7 @@ module.exports = (api, options) => {
         _: 'lodash'
       }
     ])
+
   })
 
   const { serve } = api.service.commands
@@ -31,6 +32,10 @@ module.exports = (api, options) => {
       leanixReporting.login(url).then(launchUrl => {
         done(`your dev report enviroment is accessible at ${launchUrl}`)
         openBrowser(launchUrl)
+      })
+      .catch(err => {
+        error(`💥  ${err}`)
+        exit(-1)
       })
     })
   }

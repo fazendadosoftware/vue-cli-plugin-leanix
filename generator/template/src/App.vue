@@ -1,37 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>{{msg}}</h1>
+    <h1 style="padding: 2.5rem 0">FactSheet Count</h1>
+    <fact-sheet-types></fact-sheet-types>
   </div>
 </template>
 
 <script>
+import FactSheetTypes from './components/FactSheetTypes'
 
 export default {
   name: 'app',
-  data () {
-    return {
-      msg: ''
-    }
-  },
-  created () {
-    this.$lx.init()
-      .then(setupInfo => {
-        // Process setupInfo and create config object
-        const config = {}
-        this.$lx.ready(config)
-      })
+  components: {
+    FactSheetTypes
   }
 }
 </script>
 
 <style>
+html {
+  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  align-items: center;
 }
 </style>
