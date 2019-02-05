@@ -1,16 +1,16 @@
 const fs = require('fs')
 const path = require('path')
 const rp = require('request-promise')
-const chalk = require('chalk')
 const jwtDecode = require('jwt-decode')
+const { info, done, warn, chalk } = require('@vue/cli-shared-utils')
 
 class LeanixReporting {
-  constructor (port = 8080) {
-    this.port = port
+  constructor () {
     if (fs.existsSync(path.resolve(process.cwd(), 'lxr.json'))) {
     } else {
       const errorMsg = `Could not find lxr.json`
-      console.error(chalk.redBright(errorMsg))
+      error(errorMsg)
+      // console.log(chalk.bold(chalk.red(`💥  ${errorMsg}`)))
       throw errorMsg
     }
     this.lxrConfig = require(path.resolve(process.cwd(), 'lxr.json'))
@@ -21,12 +21,17 @@ class LeanixReporting {
     return this._launchUrl
   }
 
-  getLaunchURL () {
+  login (localHostUrl = 'https://localhost:8080') {
     return this.getAccessToken(this.lxrConfig.host, this.lxrConfig.apiToken)
-      .then(token => this.getLaunchUrl(this.lxrConfig.host, token))
+      .then(token => this.getLaunchUrl(localHostUrl, this.lxrConfig.host, token))
       .then(launchURL => {
         this._launchURL = launchURL
         return launchURL
+      })
+      .catch(err => {
+        error(err)
+        // console.log(chalk.bold(chalk.red(`💥  ${err}`)))
+        throw(err)
       })
   }
 
@@ -37,7 +42,8 @@ class LeanixReporting {
     if (!lxrConfig.apiToken) validationErrors.push('apiToken not defined')
     if (validationErrors.length != 0) {
       validationErrors.forEach(err =>
-        console.error(chalk.red(`lxr.json -> ${err}`))
+        error(`💥  lxr.json -> ${err}`)
+        // console.log(chalk.bold(chalk.red(`💥  lxr.json -> ${err}`)))
       )
       throw 'Errors found while validating lxr.json file!'
     }
@@ -45,7 +51,6 @@ class LeanixReporting {
 
   getAccessToken (host, apiToken) {
     const uri = `https://${host}/services/mtm/v1/oauth2/token?grant_type=client_credentials`
-    console.log('uri', uri)
     return rp({
       method: 'POST',
       uri,
@@ -60,7 +65,9 @@ class LeanixReporting {
         return access_token
       })
       .catch(err => {
-        console.error('error', err)
+        error(`💥  ${err}`)
+        throw (err)
+        // console.log(chalk.bold(chalk.red(`💥  ${err}`)))
       })
 
     /*
@@ -80,15 +87,23 @@ class LeanixReporting {
         */
   }
 
-  getLaunchUrl (leanixInstance, bearerToken) {
+  getLaunchUrl (localHostUrl, leanixInstance, bearerToken) {
+    if (!localHostUrl || typeof leanixInstance !== 'string') {
+      const errorMsg = 'no local server url was provided!'
+      error(`💥  ${errorMsg}`)
+      // console.log(chalk.bold(chalk.red(`💥  ${errorMsg}`)))
+      throw errorMsg
+    }
     if (!leanixInstance || typeof leanixInstance !== 'string') {
       const errorMsg = 'no leanix instance was provided!'
-      console.error(chalk.redBright(errorMsg))
+      error(`💥  ${errorMsg}`)
+      // console.log(chalk.bold(chalk.red(`💥  ${errorMsg}`)))
       throw errorMsg
     }
     if (!bearerToken || typeof bearerToken !== 'string') {
       const errorMsg = 'no valid Bearer Token was provided!'
-      console.error(chalk.redBright(errorMsg))
+      error(`💥  ${errorMsg}`)
+      // console.log(chalk.bold(chalk.red(`💥  ${errorMsg}`)))
       throw errorMsg
     }
 
@@ -101,16 +116,16 @@ class LeanixReporting {
       decodedToken.principal.permission.workspaceName
     ) {
       workspaceName = decodedToken.principal.permission.workspaceName
-      console.log(chalk.cyanBright(`\nYour workspace is ${workspaceName}`))
+      info(`your workspace is ${chalk.bold(chalk.green(workspaceName))}\n`)
     } else {
       const errorMsg = `could not retrieve workspace name from bearer token!`
-      console.error(chalk.redBright(errorMsg))
+      error(`💥  ${errorMsg}`)
+      // console.log(chalk.bold(chalk.red(`💥  ${errorMsg}`)))
       throw errorMsg
     }
 
-    const port = this.port || 8080
-    const localhostUrl = `https://localhost:${port}`
-    const urlEncoded = encodeURIComponent(localhostUrl)
+    // const localhostUrl = `https://localhost:${port}`
+    const urlEncoded = encodeURIComponent(localHostUrl)
     const host = 'https://' + leanixInstance
     const bearerTokenHash = bearerToken ? `#access_token=${bearerToken}` : ''
     const baseLaunchUrl = `${host}/${workspaceName}/reporting/dev?url=${urlEncoded}`

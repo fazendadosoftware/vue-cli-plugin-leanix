@@ -7,12 +7,7 @@ module.exports = (api, options, rootOptions) => {
 
   api.extendPackage({
     scripts: {
-      'leanix-serve': 'vue-cli-service leanix-serve'
-    },
-    dependencies: {
-      '@leanix/reporting': '^0.3.1',
-      jquery: '^3.3.1',
-      lodash: '^4.17.11'
+      serve: 'vue-cli-service serve --https',
     },
     leanixReporting: {
       id: options.reportId,
@@ -29,11 +24,7 @@ module.exports = (api, options, rootOptions) => {
     })
   }
 
-  const leanIXLines = `
-
-// add lx global object to vue prototype
-/* global lx */
-Vue.prototype.$lx = lx`
+  const leanIXLines = `\n\n/* global lx */\nVue.prototype.$lx = lx`
 
   api.onCreateComplete(() => {
     // inject to main.js
