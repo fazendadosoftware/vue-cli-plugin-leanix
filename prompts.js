@@ -1,4 +1,5 @@
 module.exports = [
+  /*
   {
     name: 'reportTitle',
     type: 'string',
@@ -20,6 +21,7 @@ module.exports = [
     message: 'Report id?',
     default: 'net.leanix.report.myCustomReport'
   },
+  */
   {
     name: 'host',
     type: 'string',

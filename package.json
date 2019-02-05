@@ -1,11 +1,8 @@
 {
   "name": "vue-cli-plugin-leanix",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A vue cli plugin for generating LeanIX custom reports",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fazendadosoftware/vue-cli-plugin-leanix.git"
@@ -19,7 +16,10 @@
     "report",
     "generator"
   ],
-  "author": "Paulo dos Santos <paulo@fazendadosoftware.com>",
+  "author": {
+    "name": "Paulo dos Santos",
+    "email": "paulo@fazendadosoftware.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fazendadosoftware/vue-cli-plugin-leanix/issues"
