@@ -20,15 +20,17 @@ vue create <your_project_name>
 
 ```
 
-Add LeanIX support to your vue-cli-powered project:
+Add LeanIX support to the generated project:
 
 ```
 vue add leanix
 ```
-You will be prompted to choose if you want to use a demo component. If you pick `yes` option, the component will be created in `components` folder. It's a simple Handsontable's powered component listing the count of all factsheet types existing on the workspace.
+You will be prompted to for your leanix instance, apiToken and to choose if you want to use a demo component. If you pick `yes` option, the component will be created in `components` folder. It's a simple Handsontable's powered component listing the count of all factsheet types existing on the workspace.
 
 Start the development server:
 
 ```
 yarn run serve
 ```
+
+The leanix-reporting lx object is globally available as ```lx```, and at each Vue instance as ```vm.$lx```
