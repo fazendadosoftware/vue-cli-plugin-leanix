@@ -21,9 +21,6 @@ export default {
         const config = {}
         this.$lx.ready(config)
       })
-    setInterval(() => {
-      this.msg = new Date().toISOString()
-    }, 1000)
   }
 }
 </script>

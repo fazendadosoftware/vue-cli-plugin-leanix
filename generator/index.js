@@ -7,7 +7,7 @@ module.exports = (api, options, rootOptions) => {
 
   api.extendPackage({
     scripts: {
-      serve: 'vue-cli-service serve --https',
+      serve: 'vue-cli-service serve --https --host localhost',
     },
     leanixReporting: {
       id: options.reportId,
