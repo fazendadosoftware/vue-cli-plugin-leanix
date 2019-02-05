@@ -8,7 +8,7 @@ module.exports = (api, options) => {
   })
 
   api.chainWebpack(webpackConfig => {
-    webpackConfig.devServer.https(true).disableHostCheck(true)
+    webpackConfig.devServer.https(true).disableHostCheck(true).host('localhost')
     webpackConfig.plugin('provide').use(require('webpack').ProvidePlugin, [
       {
         $: 'jquery',
