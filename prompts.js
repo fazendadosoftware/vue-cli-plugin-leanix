@@ -36,7 +36,7 @@ module.exports = [
   {
     name: `addExample`,
     type: 'confirm',
-    message: 'Add example component to components folder?',
+    message: 'Install a demo table component for this project?',
     default: false
   }
 ]

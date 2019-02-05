@@ -7,7 +7,7 @@ module.exports = (api, options, rootOptions) => {
 
   api.extendPackage({
     scripts: {
-      serve: 'vue-cli-service serve --https',
+      serve: 'vue-cli-service serve',
     },
     leanixReporting: {
       id: options.reportId,
@@ -19,6 +19,12 @@ module.exports = (api, options, rootOptions) => {
   api.injectImports(api.entryFile, [`import '@leanix/reporting'`])
 
   if (options.addExample) {
+    api.extendPackage({
+      dependencies: {
+        '@handsontable/vue': '^3.1.0',
+        handsontable: '^6.2.2',
+      }
+    })
     api.render('./template', {
       ...options
     })
