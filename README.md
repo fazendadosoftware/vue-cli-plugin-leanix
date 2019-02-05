@@ -1,87 +1,36 @@
 # vue-cli-plugin-leanix
 
-A vue cli plugin for generating LeanIX custom reports.
+Vue CLI 3 plugin for developing LeanIX custom reports.
 
-## Getting Started
+## Pre-requisites
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-What things you need to install the software and how to install them
+You need Vue CLI 3 installed globally as a pre-requisite. If you don't have it, please run
 
 ```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+npm install -g @vue/cli
 
 ```
-Give the example
-```
 
-And repeat
+## Getting started
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+Create a vue project from scratch
 
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
+vue create <your_project_name>
 
 ```
-Give an example
+
+Add LeanIX support to the generated project:
+
+```
+vue add leanix
+```
+You will be prompted to for your leanix instance, apiToken and to choose if you want to use a demo component. If you pick `yes` option, the component will be created in `components` folder. It's a simple Handsontable's powered component listing the count of all factsheet types existing on the workspace.
+
+Start the development server:
+
+```
+yarn run serve
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+The leanix-reporting lx object is globally available as ```lx```, and at each Vue instance as ```vm.$lx```

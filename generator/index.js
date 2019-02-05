@@ -1,11 +1,36 @@
-export default (api, options, rootOptions) => {
+const fs = require('fs')
+
+module.exports = (api, options, rootOptions) => {
+  // save lxr.json file
+  const { host, apiToken } = options
+  fs.writeFileSync('lxr.json', JSON.stringify({ host, apiToken }, null, 2) + '\n')
+
   api.extendPackage({
-    dependencies: {
-      '@leanix/reporting': '^0.3.1'
+    scripts: {
+      serve: 'vue-cli-service serve',
+    },
+    leanixReporting: {
+      id: options.reportId,
+      title: options.reportTitle,
+      defaultConfig: {}
     }
   })
 
-  const leanIXLines = `import '@leanix/reporting'\nVue.prototype.$lx = lx`
+  api.injectImports(api.entryFile, [`import '@leanix/reporting'`])
+
+  if (options.addExample) {
+    api.extendPackage({
+      dependencies: {
+        '@handsontable/vue': '^3.1.0',
+        handsontable: '^6.2.2',
+      }
+    })
+    api.render('./template', {
+      ...options
+    })
+  }
+
+  const leanIXLines = `\n\n/* global lx */\nVue.prototype.$lx = lx`
 
   api.onCreateComplete(() => {
     // inject to main.js

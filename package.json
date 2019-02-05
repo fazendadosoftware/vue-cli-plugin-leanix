@@ -1,11 +1,8 @@
 {
   "name": "vue-cli-plugin-leanix",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "A vue cli plugin for generating LeanIX custom reports",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fazendadosoftware/vue-cli-plugin-leanix.git"
@@ -19,18 +16,24 @@
     "report",
     "generator"
   ],
-  "author": "Paulo dos Santos <paulo@fazendadosoftware.com>",
+  "author": {
+    "name": "Paulo dos Santos",
+    "email": "paulo@fazendadosoftware.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fazendadosoftware/vue-cli-plugin-leanix/issues"
   },
   "homepage": "https://github.com/fazendadosoftware/vue-cli-plugin-leanix#readme",
-  "devDependencies": {
-    "eslint": "^5.13.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+  "dependencies": {
+    "@leanix/reporting": "^0.3.1",
+    "jquery": "^3.3.1",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.11",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  },
+  "peerDependencies": {
+    "@vue/cli-shared-utils": "^3.0.0"
   }
 }
