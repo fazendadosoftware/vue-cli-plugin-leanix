@@ -1,5 +1,4 @@
 module.exports = [
-  /*
   {
     name: 'reportTitle',
     type: 'string',
@@ -7,6 +6,7 @@ module.exports = [
     message: 'Report title?',
     default: 'My Custom Report'
   },
+  /*
   {
     name: 'description',
     type: 'string',
@@ -14,6 +14,7 @@ module.exports = [
     message: 'Report description',
     default: 'LeanIX custom report build with Vue.js.'
   },
+  */
   {
     name: 'reportId',
     type: 'string',
@@ -21,7 +22,6 @@ module.exports = [
     message: 'Report id?',
     default: 'net.leanix.report.myCustomReport'
   },
-  */
   {
     name: 'host',
     type: 'string',

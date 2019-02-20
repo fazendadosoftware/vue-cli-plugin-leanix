@@ -30,3 +30,8 @@ yarn run serve
 ```
 
 The leanix-reporting lx object is globally available as ```lx```, and at each Vue instance as ```vm.$lx```
+
+### Upload the report to the LeanIX workspace:
+```
+yarn run upload
+```
