@@ -2,23 +2,28 @@ const fs = require('fs')
 
 module.exports = (api, options, rootOptions) => {
   // save lxr.json file
-  const { host, apiToken } = options
+  const { host, apiToken, reportId, reportTitle, addExample } = options
   fs.writeFileSync('lxr.json', JSON.stringify({ host, apiToken }, null, 2) + '\n')
 
   api.extendPackage({
     scripts: {
       serve: 'vue-cli-service serve',
+      upload: 'vue-cli-service build && vue-cli-service upload',
     },
-    leanixReporting: {
-      id: options.reportId,
-      title: options.reportTitle,
+    leanixReport: {
+      id: reportId,
+      title: reportTitle,
       defaultConfig: {}
+    },
+    vue: {
+      publicPath: '',
+      assetsDir: 'static/'
     }
   })
 
   api.injectImports(api.entryFile, [`import '@leanix/reporting'`])
 
-  if (options.addExample) {
+  if (addExample) {
     api.extendPackage({
       dependencies: {
         '@handsontable/vue': '^3.1.0',

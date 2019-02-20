@@ -21,6 +21,23 @@ module.exports = (api, options) => {
 
   })
 
+  api.registerCommand(
+    'upload',
+    {
+      description: 'Builds and uploads the current project to LeanIX',
+      usage: 'vue-cli-service upload'
+    },
+    () => {
+      console.log(`👋  Uploading project`)
+      const leanixReporting = new LeanixReporting()
+      leanixReporting.executeUpload()
+        .catch(err => {
+          error(`💥  ${err}`)
+          exit(-1)
+        })
+    }
+  )
+
   const { serve } = api.service.commands
 
   const serveFn = serve.fn
