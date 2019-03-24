@@ -23,6 +23,7 @@ module.exports = (api, options, rootOptions) => {
 
   api.injectImports(api.entryFile, [`import '@leanix/reporting'`])
 
+  /*
   if (addExample) {
     api.extendPackage({
       dependencies: {
@@ -34,12 +35,24 @@ module.exports = (api, options, rootOptions) => {
       ...options
     })
   }
+  */
 
   const leanIXLines = `\n\n/* global lx */\nVue.prototype.$lx = lx`
 
   api.onCreateComplete(() => {
-    // inject to main.js
     const fs = require('fs')
+
+    // .gitignore - not included in files on postProcessFiles
+    const ignorePath = '.gitignore'
+    const ignoreCompletePath = api.resolve(ignorePath)
+    const ignore = fs.existsSync(ignoreCompletePath)
+      ? fs.readFileSync(ignoreCompletePath, 'utf-8')
+      : ''
+    const ignoreContent = '\n# LeanIX specific files\nlxr.json\n*.tgz\n\n'
+    fs.writeFileSync(ignoreCompletePath, ignore + ignoreContent)
+    api.exitLog(`Updated ${ignorePath} : ${ignoreContent}`)
+
+    // inject to main.js
     const ext = api.hasPlugin('typescript') ? 'ts' : 'js'
     const mainPath = api.resolve(`./src/main.${ext}`)
 

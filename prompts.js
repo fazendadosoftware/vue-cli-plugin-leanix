@@ -34,11 +34,13 @@ module.exports = [
     type: 'string',
     required: true,
     message: 'LeanIX API Token (see: https://dev.leanix.net/docs/authentication#section-generate-api-tokens)'
-  },
+  }
+  /*
   {
     name: `addExample`,
     type: 'confirm',
     message: 'Install a demo table component for this project?',
     default: false
   }
+  */
 ]
