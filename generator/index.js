@@ -50,7 +50,7 @@ module.exports = (api, options, rootOptions) => {
       : ''
     const ignoreContent = '\n# LeanIX specific files\nlxr.json\n*.tgz\n\n'
     fs.writeFileSync(ignoreCompletePath, ignore + ignoreContent)
-    api.exitLog(`Updated ${ignorePath} : ${ignoreContent}`)
+    // api.exitLog(`Updated ${ignorePath} : ${ignoreContent}`)
 
     // inject to main.js
     const ext = api.hasPlugin('typescript') ? 'ts' : 'js'
