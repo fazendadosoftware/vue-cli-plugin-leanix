@@ -32,9 +32,7 @@
     "lodash": "^4.17.11",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
-    "tar": "^4.4.8"
-  },
-  "peerDependencies": {
+    "tar": "^4.4.8",
     "@vue/cli-shared-utils": "^3.0.0"
   }
 }
