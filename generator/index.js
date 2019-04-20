@@ -2,8 +2,8 @@ const fs = require('fs')
 
 module.exports = (api, options, rootOptions) => {
   // save lxr.json file
-  const { host, apiToken, reportId, reportTitle, addExample } = options
-  fs.writeFileSync('lxr.json', JSON.stringify({ host, apiToken }, null, 2) + '\n')
+  const { host, apitoken, reportId, reportTitle, addExample } = options
+  fs.writeFileSync('lxr.json', JSON.stringify({ host, apitoken }, null, 2) + '\n')
 
   api.extendPackage({
     scripts: {
@@ -50,7 +50,7 @@ module.exports = (api, options, rootOptions) => {
       : ''
     const ignoreContent = '\n# LeanIX specific files\nlxr.json\n*.tgz\n\n'
     fs.writeFileSync(ignoreCompletePath, ignore + ignoreContent)
-    api.exitLog(`Updated ${ignorePath} : ${ignoreContent}`)
+    api.exitLog(`Updated ${ignorePath} : lxr.json and *.tgz were added to ignore list`)
 
     // inject to main.js
     const ext = api.hasPlugin('typescript') ? 'ts' : 'js'

@@ -30,7 +30,7 @@ module.exports = [
     default: 'app.leanix.net'
   },
   {
-    name: 'apiToken',
+    name: 'apitoken',
     type: 'string',
     required: true,
     message: 'LeanIX API Token (see: https://dev.leanix.net/docs/authentication#section-generate-api-tokens)'
