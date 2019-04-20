@@ -1,4 +1,6 @@
 # vue-cli-plugin-leanix
+[![npm version](https://badge.fury.io/js/vue-cli-plugin-leanix.svg)](https://badge.fury.io/js/vue-cli-plugin-leanix)
+
 
 Vue CLI 3 plugin for developing LeanIX custom reports.
 
