@@ -162,7 +162,7 @@ class LeanixReporting {
         const responseBody = response.toJSON().body
         const errorJson = JSON.parse(responseBody)
         if (errorJson.errorMessage) {
-          error(`💥  error uploading the project -> ${responseJson.errorMessage}`)
+          error(`💥  error uploading the project -> ${errorJson.errorMessage}`)
         } else {
           error(`💥  error uploading the project -> ${responseBody}`)
         }
