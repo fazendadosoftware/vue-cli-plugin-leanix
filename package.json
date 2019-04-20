@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-leanix",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "A vue cli plugin for generating LeanIX custom reports",
   "main": "index.js",
   "repository": {

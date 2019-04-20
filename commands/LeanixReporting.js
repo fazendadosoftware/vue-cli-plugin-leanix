@@ -14,6 +14,10 @@ class LeanixReporting {
       throw errorMsg
     }
     this.lxrConfig = require(path.resolve(process.cwd(), 'lxr.json'))
+    // compatibility workaround for old apiToken notation
+    if (this.lxrConfig.apiToken && !this.lxrConfig.apitoken) {
+      this.lxrConfig.apitoken = this.lxrConfig.apiToken
+    }
     this.validateLxrConfig()
   }
 
@@ -22,7 +26,8 @@ class LeanixReporting {
   }
 
   login (localHostUrl = 'https://localhost:8080') {
-    return this.getAccessToken(this.lxrConfig.host, this.lxrConfig.apiToken)
+    console.debug('login -> localHostUrl', localHostUrl)
+    return this.getAccessToken(this.lxrConfig.host, this.lxrConfig.apitoken)
       .then(token => this.getLaunchUrl(localHostUrl, this.lxrConfig.host, token))
       .then(launchURL => {
         this._launchURL = launchURL
@@ -34,7 +39,7 @@ class LeanixReporting {
     if (!lxrConfig) lxrConfig = this.lxrConfig
     const validationErrors = []
     if (!lxrConfig.host) validationErrors.push('host not defined')
-    if (!lxrConfig.apiToken) validationErrors.push('apiToken not defined')
+    if (!lxrConfig.apitoken) validationErrors.push('apitoken not defined')
     if (validationErrors.length != 0) {
       validationErrors.forEach(err =>
         error(`💥  lxr.json -> ${err}`)
@@ -43,14 +48,14 @@ class LeanixReporting {
     }
   }
 
-  getAccessToken (host, apiToken) {
+  getAccessToken (host, apitoken) {
     const uri = `https://${host}/services/mtm/v1/oauth2/token?grant_type=client_credentials`
     return rp({
       method: 'POST',
       uri,
       headers: {
         Authorization:
-          'Basic ' + Buffer.from('apitoken:' + apiToken).toString('base64'),
+          'Basic ' + Buffer.from('apitoken:' + apitoken).toString('base64'),
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
@@ -125,7 +130,7 @@ class LeanixReporting {
 
   executeUpload () {
     let bearerToken
-    return this.getAccessToken(this.lxrConfig.host, this.lxrConfig.apiToken)
+    return this.getAccessToken(this.lxrConfig.host, this.lxrConfig.apitoken)
       .then(token => { bearerToken = token; return this.writeMetadataFile() })
       .then(() => this.createTarFromSrcFolderAndAddToDist())
       .then(() => this.createTarFromDistFolder())
