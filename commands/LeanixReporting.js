@@ -93,7 +93,10 @@ class LeanixReporting {
         reject(errorMsg)
       }
   
-      const urlEncoded = encodeURIComponent(localHostUrl)
+      const urlEncoded = localHostUrl === decodeURIComponent(localHostUrl)
+        ? encodeURIComponent(localHostUrl) // localHostUrl is not encoded
+        : localHostUrl // localHostUrl is already encoded
+
       const host = 'https://' + leanixInstance
       const bearerTokenHash = bearerToken ? `#access_token=${bearerToken}` : ''
       const baseLaunchUrl = `${host}/${workspaceName}/reporting/dev?url=${urlEncoded}`
