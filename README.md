@@ -1,8 +1,9 @@
 # vue-cli-plugin-leanix
 [![npm version](https://badge.fury.io/js/vue-cli-plugin-leanix.svg)](https://badge.fury.io/js/vue-cli-plugin-leanix)
 
+**:rocket: Start building a LeanIX custom report with Vue in 2 minutes!**
 
-Vue CLI 3 plugin for developing LeanIX custom reports.
+This is a vue-cli 3.x plugin to tranform a Vue project into a LeanIX custom report.
 
 ## Pre-requisites
 
@@ -24,16 +25,15 @@ cd <your_project_name>
 ```
 vue add leanix
 ```
-You will be prompted to for your leanix instance, apitoken and to choose if you want to use a demo component. If you pick `yes` option, the component will be created in `components` folder. It's a simple Handsontable's powered component listing the count of all factsheet types existing on the workspace.
 
 ### Start the development server:
 ```
-yarn run serve
+npm run serve
 ```
 
-The leanix-reporting lx object is globally available as ```lx```, and at each Vue instance as ```vm.$lx```
+The leanix-reporting lx object is globally available as ```lx```, and at each Vue instance as ```this.$lx```
 
 ### Upload the report to the LeanIX workspace:
 ```
-yarn run upload
+npm run upload
 ```
