@@ -2,7 +2,7 @@
 home: true
 heroImage: /screenshot.png
 actionText: Get Started →
-actionLink: /guide/getting-started
+actionLink: /guide/
 features:
 - title: Auto-pilot
   details: Automatically integrate vue-apollo into your Vue app!
