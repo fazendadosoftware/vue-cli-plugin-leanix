@@ -42,10 +42,11 @@ module.exports = {
           { text: 'leanix-reporting', link: 'https://github.com/leanix/leanix-reporting' }
         ],
         displayAllHeaders: true,
+        sidebarDepth: 2,
         sidebar: {
           '/guide/': [
             '',
-            'getting-started',
+            'step-by-step',
             {
               title: 'Advanced',
               collapsable: false,
