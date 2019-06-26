@@ -3,7 +3,7 @@
 
 **:rocket: Start building a LeanIX custom report with Vue in 2 minutes!**
 
-This is a vue-cli 3.x plugin to tranform a Vue project into a LeanIX custom report.
+This is a vue-cli 3.x plugin to transform a Vue project into a LeanIX custom report.
 
 ## Pre-requisites
 
