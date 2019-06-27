@@ -4,6 +4,8 @@ Custom reports are a great tool for analysing and communicating Enterprise Archi
 
 In this step-by-step tutorial we create a LeanIX custom report from scratch that will display all applications in a workspace as cards.
 
+The source-code for this project can be found [here](https://github.com/fazendadosoftware/vue-cli-plugin-tutorial).
+
 ## Create a Vue project
 We start by creating a Vue project from scratch using the following command:
 ```bash
