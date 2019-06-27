@@ -1,4 +1,4 @@
-# Introduction
+# Getting Started
 
 ::: warning COMPATIBILITY NOTE
 This plugin is intended to be used in a project created with [Vue CLI 3](https://cli.vuejs.org/) and requires **Node.js >= 8**.
@@ -7,15 +7,13 @@ This plugin is intended to be used in a project created with [Vue CLI 3](https:/
 The [Vue LeanIX plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix) allows quickly create custom-reports by adding the [LeanIX Custom Report Library API](https://leanix.github.io/leanix-reporting/classes/lxr.lxcustomreportlib.html) into an existing [Vue CLI 3](https://cli.vuejs.org/) project.
 
 
-## Getting Started
-
-### Install pre-requisites
+## Pre-requisites
 * [Node.JS >= 8](https://nodejs.org/en/)
 * [Vue CLI 3](https://cli.vuejs.org/)
 * [Yarn](https://yarnpkg.com/pt-BR/) (optional)
 
 
-### Create a custom-report
+## Quick-start
 ```bash
 # create a new Vue CLI 3 project
 vue create my-custom-report
@@ -26,7 +24,7 @@ cd my-custom-report
 # add the leanix plugin to the project
 vue add leanix
 
-# launch the development server
+# launch the development server and start coding!
 yarn serve # or npm run serve
 ```
 

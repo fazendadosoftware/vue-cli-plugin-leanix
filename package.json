@@ -40,6 +40,6 @@
     "tar": "^4.4.8"
   },
   "devDependencies": {
-    "vuepress": "^1.0.2"
+    "vuepress": "^1.0.0-rc.1"
   }
 }
