@@ -36,5 +36,5 @@ You will need to restart your Git Bash terminal session to pull in the updated p
 :::
 
 ::: tip TIP
-After adding the [vue-cli-leanix-plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix) into your Vue project the [leanix-reporting API](https://leanix.github.io/leanix-reporting/classes/lxr.lxcustomreportlib.html) will be acessible as a global variable ```lx``` or, inside each Vue instance, as ```this.$lx```.
+After adding the [vue-cli-leanix-plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix) to your Vue project the [leanix-reporting API](https://leanix.github.io/leanix-reporting/classes/lxr.lxcustomreportlib.html) will be acessible as a global variable ```lx``` or, inside each Vue instance, as ```this.$lx```.
 :::

@@ -2,7 +2,7 @@
 
 Custom reports are a great way for analysing and communicating Enterprise Architecture insights of your organization in an effective way.
 
-In this step-by-step tutorial we create a simple [LeanIX](https://www.leanix.net/en/) custom report from scratch, using [Vue](https://vuejs.org/), that will list all application factsheets of a workspace as cards, as in the picture below:
+In this step-by-step tutorial we create a simple [LeanIX](https://www.leanix.net/en/) custom report from scratch, using [Vue](https://vuejs.org/), that will list all application factsheets of a workspace as cards as in the picture below:
 
 <figure class="panel-image">
   <img src='/tutorial_09.png'>
@@ -49,7 +49,7 @@ You'll notice after this operation a newly created ```lxr.json``` located at the
 :::
 
 ::: tip TIP
-After adding the [vue-cli-leanix-plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix) into your Vue project the [leanix-reporting API](https://leanix.github.io/leanix-reporting/classes/lxr.lxcustomreportlib.html) will be acessible as a global variable ```lx``` or, inside each Vue instance, as ```this.$lx```.
+After adding the [vue-cli-leanix-plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix) to your Vue project the [leanix-reporting API](https://leanix.github.io/leanix-reporting/classes/lxr.lxcustomreportlib.html) will be acessible as a global variable ```lx``` or, inside each Vue instance, as ```this.$lx```.
 :::
 
 ## Launch the development server
@@ -121,7 +121,7 @@ After the security exception is added, we may relaunch your development server a
 
 <figure class="panel-image">
   <img src='/tutorial_06.png'>
-  <figcaption><strong>Are are now ready to start coding!</strong></figcaption>
+  <figcaption><strong>Success, we are now ready to start coding!</strong></figcaption>
 </figure>
 
 
