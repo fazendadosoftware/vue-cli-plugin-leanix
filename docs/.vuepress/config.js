@@ -7,13 +7,8 @@ module.exports = {
   locales: {
     '/': {
       lang: 'en-US',
-      title: 'Vue LeanIX plugin',
+      title: 'Vue CLI LeanIX plugin',
       description: '📊 Create LeanIX custom reports using Vue! 👌',
-    },
-    '/pt/': {
-      lang: 'pt-BR',
-      title: 'Vue LeanIX plugin',
-      description: '📊 Crie relatórios customizados da LeanIX usando Vue! 👌',
     }
   },
   themeConfig: {
@@ -46,7 +41,8 @@ module.exports = {
         sidebar: {
           '/guide/': [
             '',
-            'step-by-step',
+            'step-by-step'
+            /*
             {
               title: 'Advanced',
               collapsable: false,
@@ -54,6 +50,7 @@ module.exports = {
                 'configuration'
               ]
             }
+            */
           ]
         }
       }

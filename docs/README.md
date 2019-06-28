@@ -4,13 +4,13 @@ heroImage: /screenshot.png
 actionText: Get Started →
 actionLink: /guide/
 features:
-- title: Auto-pilot
-  details: Automatically integrate vue-apollo into your Vue app!
-- title: Builtin Apollo client config
-  details: Get started with a zero-config, customizable & upgradable Apollo client
-- title: Embedded Apollo Server
-  details: Create a fullstack GraphQL app in minutes! Supports websocket subscriptions and more!
-footer: MIT Licensed | Copyright © 2018-present Fazenda do Software
+- title: Effortless
+  details: Quickly create new custom report projects in less than 5 minutes using the Vue CLI tool.
+- title: Versatile
+  details: Implement sophisticated custom reports using all the advantages the Vue ecosystem has to offer.
+- title: Well documented
+  details: Interface with your LeanIX workspace using the standard leanix-reporting API.
+footer: MIT Licensed | Copyright © 2019-present Fazenda do Software
 ---
 
 ## Quick Start

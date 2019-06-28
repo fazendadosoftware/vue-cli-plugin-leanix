@@ -1,8 +1,13 @@
 # Step-by-step tutorial
 
-Custom reports are a great tool for analysing and communicating Enterprise Architecture insights in an effective way.
+Custom reports are a great way for analysing and communicating Enterprise Architecture insights of your organization in an effective way.
 
-In this step-by-step tutorial we create a LeanIX custom report from scratch that will display all applications in a workspace as cards.
+In this step-by-step tutorial we create a simple [LeanIX](https://www.leanix.net/en/) custom report from scratch, using [Vue](https://vuejs.org/), that will list all application factsheets of a workspace as cards, as in the picture below:
+
+<figure class="panel-image">
+  <img src='/tutorial_09.png'>
+</figure>
+<br>
 
 The source-code for this project can be found [here](https://github.com/fazendadosoftware/vue-cli-plugin-tutorial).
 
@@ -22,13 +27,13 @@ A first dialog is presented. For our demo project we select the ```default``` op
 
 After confirming your answer, wait until the project is created and all dependencies are installed.
 
-## Install the Vue LeanIX plugin
-After our project is created and all dependencies are installed we switch into the project folder and add the [Vue LeanIX plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix):
+## Install the Vue CLI LeanIX plugin
+After our project is created and all dependencies are installed we switch into the project folder and add the [Vue CLI LeanIX plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix) to it:
 ```bash
 # switch into the project folder
 cd my-custom-report
 
-# add the leanix plugin to the project
+# add the vue cli leanix plugin to the project
 vue add leanix
 ```
 <br>
@@ -40,13 +45,15 @@ Some questions regarding the custom report are then presented to the user. Answe
 <br>
 
 ::: tip TIP
-You'll notice after this operation a newly created ```lxr.json``` located at the project's root folder, and that the ```package.json``` file contains a ```leanixReport``` section containing the information given in the previous questions. This is important information in case you decide later to change any of your custom-report parameters that were previously answered.
+You'll notice after this operation a newly created ```lxr.json``` located at the project's root folder, and that the ```package.json``` file contains a ```leanixReport``` section containing the information given in the previous questions. This is important information in case you later decide to change any of your custom-report parameters that were previously answered.
 :::
 
-<br><br>
+::: tip TIP
+After adding the [vue-cli-leanix-plugin](https://github.com/fazendadosoftware/vue-cli-plugin-leanix) into your Vue project the [leanix-reporting API](https://leanix.github.io/leanix-reporting/classes/lxr.lxcustomreportlib.html) will be acessible as a global variable ```lx``` or, inside each Vue instance, as ```this.$lx```.
+:::
 
 ## Launch the development server
-We are now ready to launch the code editor of our choice (we will use [Visual Studio Code](https://code.visualstudio.com/) in the tutorial) and **start the development server** with the followind command:
+We are now ready to launch the code editor of our choice and **start the development server** with the followind command:
 ```bash
 # start the development server
 yarn serve # or npm run serve
@@ -84,7 +91,7 @@ As the development server uses an **automatically generated self-signed certific
     margin 0.5rem
     margin-top 2rem
     > img
-      border 1px solid grey
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 </style>
 
 <br>
@@ -111,23 +118,21 @@ In order to overcome this error, you need open your local development server url
 
 <br><br>
 After the security exception is added, we may relaunch your development server again, and we'll see our custom-report window displayed inside the LeanIX Pathfinder application.
-<br>
-<br>
-![Custom report inside LeanIX application](/tutorial_06.png)
 
-<br>
-<br>
-We are now ready to start coding!
+<figure class="panel-image">
+  <img src='/tutorial_06.png'>
+  <figcaption><strong>Are are now ready to start coding!</strong></figcaption>
+</figure>
 
 
 ## Inspect our project source code folder
 On a separate window, open the project root folder with the code editor of your choice.
-In this tutorial we will be using [Visual Studio Code](https://code.visualstudio.com/).
 Our project folder should have a structure similar to the picture below:
 
-<figure>
+<figure class="panel-image">
   <img src='/tutorial_03.png'>
 </figure>
+
 <br>
 
 For our demo custom report, the relevant files to be edited are located inside the ```src``` folder. More specifically, we'll modify the main component file ```App.vue```, and create a new component inside the ```src/components``` folder called ```ApplicationCard.vue```.
@@ -298,8 +303,6 @@ We should end up, for now, with both ```baseUrl``` and ```dataset.length``` vari
 <br>
 
 ## Create the ApplicationCard component
-
-<br>
 
 Inside the ```src/components``` folder we create a file named ```ApplicationCard.vue``` and initialize it as follows:
 
@@ -494,11 +497,9 @@ export default {
 
 Our ```ApplicationCard``` component is now ready to be rendered inside our custom-report main component!
 
-## Render the custom-report dataset as cards
+## Refactor the main component
 
-<br>
-
-With the ```ApplicationCard``` component defined, we can use it in our main component for rendering each dataset item as a card.
+With the ```ApplicationCard``` component defined, we can use it in our main component, ```App.vue```, for rendering each dataset item as a card.
 In order to do so, we need to import and declare it into the ```script``` section of our ```App.vue``` component as follows:
 
 ```vue
@@ -515,7 +516,7 @@ export default {
 
 <br>
 
-We then adjust the ```template``` section of the ```App.vue``` component for render correctly each ```ApplicationCard```component. Notice that we render recursively an ```ApplicationCard``` for each item in the ```dataset```, while we wrap the whole set of ```ApplicationCards``` into a single ```.cards-container``` element.
+We then adjust the ```template``` section of the ```App.vue``` component to render correctly each ```ApplicationCard```component. Notice that we render recursively an ```ApplicationCard``` for each item in the ```dataset```, while we wrap the whole set of ```ApplicationCards``` into a single ```.cards-container``` element.
 
 ```vue
 <template>
@@ -559,7 +560,7 @@ html, body {
 
 And in the end we should come up with a result as follows:
 
-<figure>
+<figure class="panel-image">
   <img src='/tutorial_09.png'>
 </figure>
 <br>
