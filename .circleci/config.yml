@@ -16,6 +16,10 @@ jobs:
 
     working_directory: ~/repo
 
+    branches:
+      only:
+        - edge
+
     steps:
       - checkout
       - run: echo "A first hello"
