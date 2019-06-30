@@ -1,5 +1,6 @@
 module.exports = {
-  base: '/',
+  
+  base: '/vue-cli-plugin-leanix/',
   serviceWorker: true,
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }],

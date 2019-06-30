@@ -27,7 +27,8 @@
   "homepage": "https://github.com/fazendadosoftware/vue-cli-plugin-leanix#readme",
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "bash deploy.sh"
   },
   "dependencies": {
     "@leanix/reporting": "^0.3.1",

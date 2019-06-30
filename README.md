@@ -7,7 +7,7 @@ This is a vue-cli 3.x plugin to transform a Vue project into a LeanIX custom rep
 
 <br>
 
-<h3 align="center"><a href="https://vue-cli-plugin-apollo.netlify.com/">Documentation</a></h3>
+<h3 align="center"><a href="https://fazendadosoftware.github.io/vue-cli-plugin-leanix/">Documentation</a></h3>
 
 ## Pre-requisites
 
