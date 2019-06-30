@@ -5,7 +5,7 @@ Custom reports are a great way for analysing and communicating Enterprise Archit
 In this step-by-step tutorial we create a simple [LeanIX](https://www.leanix.net/en/) custom report from scratch, using [Vue](https://vuejs.org/), that will list all application factsheets of a workspace as cards as in the picture below:
 
 <figure class="panel-image">
-  <img src='/tutorial_09.png'>
+  <img :src="$withBase('/tutorial_09.png')">
 </figure>
 <br>
 
@@ -21,7 +21,7 @@ vue create my-custom-report
 
 A first dialog is presented. For our demo project we select the ```default``` option.
 <figure>
-  <img src='/tutorial_01.png'>
+  <img :src="$withBase('/tutorial_01.png')">
 </figure>
 <br>
 
@@ -40,7 +40,7 @@ vue add leanix
 
 Some questions regarding the custom report are then presented to the user. Answer them according your case.
 <figure>
-  <img src='/tutorial_02.png'>
+  <img :src="$withBase('/tutorial_02.png')">
 </figure>
 <br>
 
@@ -67,17 +67,17 @@ As the development server uses an **automatically generated self-signed certific
 :::
 
 <figure class="panel-image">
-  <img src='/tutorial_04_chrome.png'>
+  <img :src="$withBase('/tutorial_04_chrome.png')">
   <figcaption><strong>Google Chrome</strong></figcaption>
 </figure>
 
 <figure class="panel-image">
-  <img src='/tutorial_04_firefox.png'>
+  <img :src="$withBase('/tutorial_04_firefox.png')">
   <figcaption><strong>Mozilla Firefox</strong></figcaption>
 </figure>
 
 <figure class="panel-image">
-  <img src='/tutorial_04_edge.png'>
+  <img :src="$withBase('/tutorial_04_edge.png')">
   <figcaption><strong>Microsoft Edge</strong></figcaption>
 </figure>
 
@@ -102,17 +102,17 @@ In order to overcome this error, you need open your local development server url
 
 
 <figure class="panel-image">
-  <img src='/tutorial_05_chrome.png'>
+  <img :src="$withBase('/tutorial_05_chrome.png')">
   <figcaption><strong>Adding security exception for Google Chrome</strong></figcaption>
 </figure>
 
 <figure class="panel-image">
-  <img src='/tutorial_05_firefox.png'>
+  <img :src="$withBase('/tutorial_05_firefox.png')">
   <figcaption><strong>Adding security exception for Mozilla Firefox</strong></figcaption>
 </figure>
 
 <figure class="panel-image">
-  <img src='/tutorial_05_edge.png'>
+  <img :src="$withBase('/tutorial_05_edge.png')">
   <figcaption><strong>Adding security exception for Microsoft Edge</strong></figcaption>
 </figure>
 
@@ -120,7 +120,7 @@ In order to overcome this error, you need open your local development server url
 After the security exception is added, we may relaunch your development server again, and we'll see our custom-report window displayed inside the LeanIX Pathfinder application.
 
 <figure class="panel-image">
-  <img src='/tutorial_06.png'>
+  <img :src="$withBase('/tutorial_06.png')">
   <figcaption><strong>Success, we are now ready to start coding!</strong></figcaption>
 </figure>
 
@@ -130,7 +130,7 @@ On a separate window, open the project root folder with the code editor of your 
 Our project folder should have a structure similar to the picture below:
 
 <figure class="panel-image">
-  <img src='/tutorial_03.png'>
+  <img :src="$withBase('/tutorial_03.png')">
 </figure>
 
 <br>
@@ -298,7 +298,7 @@ html, body {
 
 We should end up, for now, with both ```baseUrl``` and ```dataset.length``` variables printed in our custom-report.
 <figure>
-  <img src='/tutorial_07.png'>
+  <img :src="$withBase('/tutorial_07.png')">
 </figure>
 <br>
 
@@ -561,7 +561,7 @@ html, body {
 And in the end we should come up with a result as follows:
 
 <figure class="panel-image">
-  <img src='/tutorial_09.png'>
+  <img :src="$withBase('/tutorial_09.png')">
 </figure>
 <br>
 
