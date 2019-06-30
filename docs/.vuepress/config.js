@@ -1,5 +1,4 @@
 module.exports = {
-  
   base: '/vue-cli-plugin-leanix/',
   serviceWorker: true,
   head: [
