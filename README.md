@@ -5,6 +5,10 @@
 
 This is a vue-cli 3.x plugin to transform a Vue project into a LeanIX custom report.
 
+<br>
+
+<h3 align="center"><a href="https://vue-cli-plugin-apollo.netlify.com/">Documentation</a></h3>
+
 ## Pre-requisites
 
 You need Vue CLI 3 installed globally as a pre-requisite. If you don't have it, please run
