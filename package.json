@@ -1,6 +1,6 @@
 {
   "name": "vue-cli-plugin-leanix",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "A vue cli plugin for generating LeanIX custom reports",
   "main": "index.js",
   "repository": {
@@ -31,16 +31,13 @@
     "docs:deploy": "bash deploy.sh"
   },
   "dependencies": {
-    "@leanix/reporting": "^0.3.1",
-    "@vue/cli-shared-utils": "^3.0.0",
-    "jquery": "^3.4.0",
-    "jwt-decode": "^2.2.0",
-    "lodash": "^4.17.11",
+    "@vue/cli-shared-utils": "^4.5.11",
+    "jwt-decode": "^3.1.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
-    "tar": "^4.4.8"
+    "tar": "^6.1.0"
   },
   "devDependencies": {
-    "vuepress": "^1.0.0-rc.1"
+    "vuepress": "^1.8.1"
   }
 }

@@ -9,16 +9,6 @@ module.exports = (api, options) => {
 
   api.chainWebpack(webpackConfig => {
     webpackConfig.devServer.https(true).disableHostCheck(true).host('localhost')
-    webpackConfig.plugin('provide').use(require('webpack').ProvidePlugin, [
-      {
-        $: 'jquery',
-        jquery: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        _: 'lodash'
-      }
-    ])
-
   })
 
   api.registerCommand(

@@ -54,8 +54,7 @@ class LeanixReporting {
       method: 'POST',
       uri,
       headers: {
-        Authorization:
-          'Basic ' + Buffer.from('apitoken:' + apitoken).toString('base64'),
+        Authorization: 'Basic ' + Buffer.from('apitoken:' + apitoken).toString('base64'),
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
