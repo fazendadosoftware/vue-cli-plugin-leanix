@@ -59,8 +59,8 @@ module.exports = (api, options, rootOptions) => {
     if (isVue3) {
       const createAppLineIdx = lines.findIndex(line => line.indexOf('createApp') > -1)
       if (createAppLineIdx > -1) {
-        lines.splice(createAppLineIdx, 1, 'const app = createApp(App).mount(\'#app\')')
-        lines.splice(createAppLineIdx, 0, `/* global lx */\napp.config.globalProperties.$lx = lx`)
+        lines.splice(createAppLineIdx, 1, 'const app = createApp(App)')
+        lines.splice(createAppLineIdx, 0, `/* global lx */\napp.config.globalProperties.$lx = lx\napp.mount(\'#app\')`)
       } else {
         api.exitLog('Add this line to main.js: app.config.globalProperties.$lx = lx')
       }
